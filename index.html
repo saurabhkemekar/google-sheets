@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sheets</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="top-container">
+      <div>
+        <img
+          alt="sheet-image"
+          src="./assets/sheet.png"
+          width="30"
+          height="30"
+        />
+      </div>
+
+      <div class="name-menu-container">
+        <div class="sheet-name" contenteditable="true">
+          Untitled SpreadSheet
+        </div>
+        <div class="page-actions-container">
+          <div class="page-action">Home</div>
+          <div class="page-action">File</div>
+          <div class="page-action">Insert</div>
+          <div class="page-action">Layout</div>
+          <div class="page-action">Help</div>
+        </div>
+      </div>
+    </div>
+    <div class="cellprops-actions-container">
+      <span class="material-symbols-outlined icon bold"> format_bold </span>
+      <span class="material-symbols-outlined icon italic"> format_italic </span>
+      <span class="material-symbols-outlined icon underline">
+        format_underlined
+      </span>
+      <span class="material-symbols-outlined icon content-copy">
+        content_copy
+      </span>
+      <span class="material-symbols-outlined icon content-cut">
+        content_cut
+      </span>
+      <select class="select-options font-family">
+        <option>Noto sans</option>
+        <option>Monospace</option>
+        <option>Arial</option>
+        <option>Roboto</option>
+      </select>
+      <select class="select-options font-size">
+        <option>12</option>
+        <option>14</option>
+        <option>16</option>
+      </select>
+      <span class="material-symbols-outlined icon align-left">
+        format_align_left
+      </span>
+      <span class="material-symbols-outlined icon align-center">
+        format_align_center
+      </span>
+      <span class="material-symbols-outlined icon align-right">
+        format_align_right
+      </span>
+      <div class="color-prop">
+        <span class="material-symbols-outlined icon font-color">
+          format_color_text
+        </span>
+        <input type="color" class="format-color" />
+      </div>
+      <div class="color-prop">
+        <span class="material-symbols-outlined icon background-color">
+          format_color_fill
+        </span>
+        <input type="color" class="format-background-color" />
+      </div>
+    </div>
+    <div class="formula-actions-container">
+      <input type="text" class="address-bar input" readonly />
+      <img
+        width="16"
+        height="16"
+        src="https://img.icons8.com/ios/50/formula-fx.png"
+        alt="formula-fx"
+      />
+      <input type="text" class="formula-bar input" />
+    </div>
+    <div class="grid-actions-container">
+      <div class="dummy-cell cell"></div>
+      <div class="address-col"></div>
+      <div class="address-row-container"><div class="address-row"></div></div>
+      <div class="cell-container"></div>
+    </div>
+    <div class="sheet-actions-container">
+      <div class="add-sheet-icon">
+        <span class="material-symbols-outlined"> post_add </span>
+      </div>
+      <div class="sheet-folder-container"></div>
+    </div>
+    <script src="./script/sheetLayout.js"></script>
+    <script src="./script/manageSheets.js"></script>
+    <script src="./script/cellProperties.js"></script>
+    <script src="./script/formula.js"></script>
+  </body>
+</html>
