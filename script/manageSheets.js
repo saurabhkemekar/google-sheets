@@ -110,7 +110,6 @@ function handleRemoveSheet(sheet, id) {
     if (event.button !== 2) return;
 
     const sheets = document.querySelectorAll(".sheet-folder");
-    console.log("length", sheets.length);
     if (sheets.length === 1) {
       alert("There need to have atleast one sheet");
       return;
@@ -118,7 +117,6 @@ function handleRemoveSheet(sheet, id) {
 
     const response = confirm("Do you wish to delete the sheet");
     if (response) {
-      console.log("He wants to delete the sheet");
       // Remove the sheet from DB
       // and change the id of all other sheet
       // and activate the first sheet

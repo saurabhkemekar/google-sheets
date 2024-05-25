@@ -26,8 +26,9 @@ body {
   display: flex;
   align-items: center;
   column-gap: 0.5rem;
-  margin-left: 1rem;
-  border-radius: 10px;
+  margin: 0 1rem;
+  border-radius: 1rem;
+  padding: 0 1rem;
 }
 
 .select-options {

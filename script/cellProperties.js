@@ -73,7 +73,6 @@ alignCenter.addEventListener("click", () => {
 });
 
 cellGrid.addEventListener("click", (event) => {
-  console.log("HERE GETACTIVECELL");
   const [cell, cellProps] = getActiveCell();
   highlightActiveCellProperties(cell, cellProps);
 });
@@ -137,7 +136,6 @@ function highlightActiveCellProperties(cell, cellProps) {
 }
 
 function highlightActiveCellRowAndColumn(address, color = "#ffffff") {
-  console.log("HERE", address);
   const [rowId, colId] = decodeCellLocation(address);
   const rowCell = document.querySelector(`.address-cell[rowId="${rowId}"]`);
   const colCell = document.querySelector(`.address-cell[colId="${colId}"`);

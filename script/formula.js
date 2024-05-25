@@ -3,7 +3,6 @@ for (let i = 0; i < noOfRows; i++) {
     const cell = document.querySelector(`.input-cell[rid="${i}"][cid="${j}"]`);
     cell.addEventListener("blur", () => {
       // evalute the expression
-      console.log("MAKE IT UNBLUR");
       highlightActiveCellRowAndColumn(addressBar.value);
       const [cell, cellProps] = getActiveCell();
       cellProps.value = cell.innerText;
@@ -21,11 +20,6 @@ formulaBar.addEventListener("keydown", (event) => {
     const [cell, cellProps] = getActiveCell();
     const prevFormula = cellProps.formula;
 
-    if (detectCycle(addressBar.value)) {
-      alert("Cycled Reference  Detected");
-      return;
-    }
-
     if (prevFormula !== inputFormula) {
       removeChildParentRelation(prevFormula); // we will remove all the node and new nodes will be added
     }
@@ -40,6 +34,15 @@ formulaBar.addEventListener("keydown", (event) => {
       cellProps.value = value;
     }
     addChildrenToParent(inputFormula);
+
+    if (detectCycle(addressBar.value)) {
+      cellProps.formula = "";
+      cellProps.value = "#ERROR";
+      cell.innerText = "#ERROR";
+      cellProps.children = [];
+      alert("Cycled Reference  Detected");
+      return;
+    }
   }
 });
 
@@ -112,6 +115,7 @@ function detectCycle(node) {
     const cellAddress = queue.shift();
     visitedArr.push(cellAddress);
     const [cell, cellProps] = getActiveCell(cellAddress);
+    console.log(cellAddress, cellProps.children);
     for (let child of cellProps.children) {
       if (visitedArr.includes(child)) {
         return true;
